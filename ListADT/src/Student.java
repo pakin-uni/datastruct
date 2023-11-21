@@ -1,4 +1,7 @@
 class Student {
+    // change Student to Book
+    // add author,BookName,Genera,Price by using refactor to change the attribute
+    // dont forgot to change the type for variable
     private String id,name;
     private double midScore,finalScore,quizScore,prjScore,collabScore;
     public Student(String idS, String nameS, double midS, double finalS, double quizS, double prjS, double collabS ){
