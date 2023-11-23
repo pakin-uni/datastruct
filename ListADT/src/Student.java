@@ -1,54 +1,37 @@
+import java.awt.print.Book;
+
 class Student {
     // change Student to Book
     // add author,BookName,Genera,Price by using refactor to change the attribute
     // dont forgot to change the type for variable
-    private String id,name;
-    private double midScore,finalScore,quizScore,prjScore,collabScore;
-    public Student(String idS, String nameS, double midS, double finalS, double quizS, double prjS, double collabS ){
-        id = idS;
-        name = nameS;
-        midScore = midS;
-        finalScore = finalS;
-        quizScore =quizS;
-        prjScore = prjS;
-        collabScore =collabS;
+    private String Author, BookName, Genera;
+    private double Price;
+    public Student(String idS, String nameS, double midS, String finalS){
+        Author = idS;
+        BookName = nameS;
+        Price = midS;
+        Genera = finalS;
     }
-    public void setStudent(String idS,String nameS,double midS,double finalS,double quizS,double prjS,double collabS){
-        id = idS;
-        name = nameS;
-        midScore = midS;
-        finalScore = finalS;
-        quizScore =quizS;
-        prjScore = prjS;
-        collabScore =collabS;
+    public void setStudent(String idS,String nameS,double midS,String finalS){
+        Author = idS;
+        BookName = nameS;
+        Price = midS;
+        Genera = finalS;
     }
-    public Student getStudent(){
+    public Student getBook(){
         return this;
     }
 
-    public double getTotalScore() {
-        return (this.midScore + this.finalScore + this.quizScore + this.prjScore + this.collabScore);
+    public String getAuthor(){
+        return this.Author;
     }
-
-    public String getId(){
-        return this.id;
+    public String getBookName(){
+        return this.BookName;
     }
-    public String getName(){
-        return this.name;
+    public  double getPrice(){
+        return this.Price;
     }
-    public  double getMidScore(){
-        return this.midScore;
-    }
-    public double getFinalScore(){
-        return this.finalScore;
-    }
-    public double getPrjScore() {
-        return this.prjScore;
-    }
-    public double getCollabScore(){
-        return this.collabScore;
-    }
-    public  Double getQuizScore(){
-        return this.quizScore;
+    public String getGenera(){
+        return this.Genera;
     }
 }

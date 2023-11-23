@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.util.LinkedList;
 
 class ListTest {
     public static void main(String[] args) {
@@ -73,30 +72,25 @@ class ListTest {
     }
     public Student getElement(){
         Student temp;
-        String id, name;
-        double mid, fin, quiz, prj, col;
+        String Author, bookName, Genera;
+        double price;
 
-        id = JOptionPane.showInputDialog(null, "Input ID of student. ");
-        name = JOptionPane.showInputDialog(null, "Input Name of student. ");
-        mid = Double.parseDouble(JOptionPane.showInputDialog(null, "Input Midterm Score of student. "));
-        fin = Double.parseDouble(JOptionPane.showInputDialog(null, "Input Final Score of student. "));
-        quiz = Double.parseDouble(JOptionPane.showInputDialog(null, "Input Quiz Score of student. "));
-        prj = Double.parseDouble(JOptionPane.showInputDialog(null, "Input Project Score of student. "));
-        col = Double.parseDouble(JOptionPane.showInputDialog(null, "Input Collaboration Score of student. "));
-        temp = new Student(id, name, mid, fin, quiz, prj, col);
-        temp.setStudent(id, name, mid, fin, quiz, prj, col);
+        Author = JOptionPane.showInputDialog(null, "Input Name of Author. ");
+        bookName = JOptionPane.showInputDialog(null, "Input Name of the book. ");
+        price = Double.parseDouble(JOptionPane.showInputDialog(null, "Input price of book. "));
+        Genera = JOptionPane.showInputDialog(null, "Input Genera of book. ");
+        temp = new Student(Author, bookName, price, Genera);
+        temp.setStudent(Author, bookName, price, Genera);
         return temp;
     }
     public void printElement(Student e){
         if (e != null){
             JOptionPane.showInputDialog(null,
-                    "ID                    : "+e.getId()+
-                            "\nName                : "+e.getName()+
-                            "\nMidterm Score       : "+e.getMidScore()+
-                            "\nFinal Score         : "+e.getFinalScore()+
-                            "\nQuiz Score          : "+e.getQuizScore()+
-                            "\nProject Score       : "+e.getPrjScore()+
-                            "\nCollaborative Score : "+e.getCollabScore());
+                    "ID                    : "+e.getAuthor()+
+                            "\nName                : "+e.getBookName()+
+                            "\nMidterm Score       : "+e.getPrice()+
+                            "\nFinal Score         : "+e.getGenera());
+
         }
     }
 }
