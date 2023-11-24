@@ -4,7 +4,7 @@ class ListTest {
     public static void main(String[] args) {
         String choice;
         int ch = 0;
-        Student e;
+        Book e;
         ListTest test = new ListTest();
         Object obj;
 
@@ -35,7 +35,7 @@ class ListTest {
                     break;
                 case 2:
                     obj = list.retrieve();
-                    e = (Student) obj;
+                    e = (Book) obj;
                     test.printElement(e);
                     break;
                 case 3:
@@ -70,8 +70,8 @@ class ListTest {
             }
         }
     }
-    public Student getElement(){
-        Student temp;
+    public Book getElement(){
+        Book temp;
         String Author, bookName, Genera;
         double price;
 
@@ -79,11 +79,11 @@ class ListTest {
         bookName = JOptionPane.showInputDialog(null, "Input Name of the book. ");
         price = Double.parseDouble(JOptionPane.showInputDialog(null, "Input price of book. "));
         Genera = JOptionPane.showInputDialog(null, "Input Genera of book. ");
-        temp = new Student(Author, bookName, price, Genera);
+        temp = new Book(Author, bookName, price, Genera);
         temp.setStudent(Author, bookName, price, Genera);
         return temp;
     }
-    public void printElement(Student e){
+    public void printElement(Book e){
         if (e != null){
             JOptionPane.showInputDialog(null,
                     "ID                    : "+e.getAuthor()+

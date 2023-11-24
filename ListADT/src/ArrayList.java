@@ -5,7 +5,7 @@ public class ArrayList implements ListADT{
     public  ArrayList() {
         current= -1;
         total = 50;
-        s = new Student[total];
+        s = new Object[total];
         size=0;
     }
 
@@ -87,7 +87,7 @@ public class ArrayList implements ListADT{
 
     public void SortByBookname(){
         int mid=0;
-        Object element = s[mid];
+        Object book = s[mid];
         for(int i=0;i<size-1;i++){
 
         }
