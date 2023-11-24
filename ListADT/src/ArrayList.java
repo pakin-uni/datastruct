@@ -87,9 +87,14 @@ public class ArrayList implements ListADT{
 
     public void SortByBookname(){
         int mid=0;
-        Object book = s[mid];
+        Object fljk = s[mid];
         for(int i=0;i<size-1;i++){
 
         }
+    }
+
+    public  void test(){
+        int v=1;
+
     }
 }
