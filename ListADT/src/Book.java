@@ -1,4 +1,4 @@
-class Book {
+class Book{
     // change Book to Book
     // add author,BookName,Genera,Price by using refactor to change the attribute
     // dont forgot to change the type for variable
@@ -32,4 +32,15 @@ class Book {
     public String getGenera(){
         return this.Genera;
     }
+
+//    @Override
+//    public int compareTo(Book o) {
+//        return this.BookName.compareTo(o.getBookName());
+//    }
 }
+//class BookComparator implements java.util.Comparator<Book> {
+//    @Override
+//    public int compare(Book veg1, Book veg2) {
+//        return veg1.compareTo(veg2);
+//    }
+//}
