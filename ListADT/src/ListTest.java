@@ -2,15 +2,13 @@ import javax.swing.*;
 
 class ListTest {
     public static void main(String[] args) {
-        String choice;
+        String choice,j;
         int ch = 0;
-        Student e;
+        Book e;
         ListTest test = new ListTest();
         Object obj;
 
         ArrayList list = new ArrayList();
-        //SinglyLinkedList list = new SinglyLinkedList();
-        //DoublyLinkedList list = new DoublyLinkedList();
         while(ch != 8){
             try{
                 choice = JOptionPane.showInputDialog(null,
@@ -29,13 +27,18 @@ class ListTest {
             ch = Integer.parseInt(choice);
             switch (ch){
                 case 1:
-                    e = test.getElement();
-                    obj = e;
-                    list.insert(e);
+                    list.insert(new Book("J","Pride and Prejudice",105,"Romance"));
+                    list.insert(new Book("H","Murder on the Orient Express",95,"Romance"));
+                    list.insert(new Book("A","The Old Man and the Sea",75,"Adventure"));
+                    list.insert(new Book("JR","The Adventures of Tom Sawyer",85,"Dystopian"));
+                    list.insert(new Book("B","The Time Machine",55,"Science Fiction"));
+                    //
+                    //obj = e;
+                    //list.insert(e);
                     break;
                 case 2:
                     obj = list.retrieve();
-                    e = (Student) obj;
+                    e = (Book) obj;
                     test.printElement(e);
                     break;
                 case 3:
@@ -63,15 +66,30 @@ class ListTest {
                     break;
                 case 8:
                     System.exit(0);
+                case 9:
+                    list.findName();
+                    break;
+                case 10:
+                    list.sortPrice();
+                    break;
+                case 11:
+                    j = test.getEle();
+                    if (list.SearchName(j))
+                        JOptionPane.showMessageDialog(null,"Found "+list.retrieveName());
+                    else
+                        JOptionPane.showMessageDialog(null,"Not Found");
+
+
+                    break;
             }
             } catch (Exception ex) {
-                throw 
-                new RuntimeException(ex);
+                throw new RuntimeException(ex);
             }
         }
+
     }
-    public Student getElement(){
-        Student temp;
+    public Book getElement(){
+        Book temp;
         String Author, bookName, Genera;
         double price;
 
@@ -79,18 +97,24 @@ class ListTest {
         bookName = JOptionPane.showInputDialog(null, "Input Name of the book. ");
         price = Double.parseDouble(JOptionPane.showInputDialog(null, "Input price of book. "));
         Genera = JOptionPane.showInputDialog(null, "Input Genera of book. ");
-        temp = new Student(Author, bookName, price, Genera);
+        temp = new Book(Author, bookName, price, Genera);
         temp.setStudent(Author, bookName, price, Genera);
         return temp;
     }
-    public void printElement(Student e){
+    public void printElement(Book e){
         if (e != null){
-            JOptionPane.showInputDialog(null,
+            JOptionPane.showMessageDialog(null,
                     "ID                    : "+e.getAuthor()+
                             "\nName                : "+e.getBookName()+
                             "\nMidterm Score       : "+e.getPrice()+
                             "\nFinal Score         : "+e.getGenera());
 
         }
+    }
+
+    public String getEle()
+    {
+        String temp = JOptionPane.showInputDialog(null,"Please input number :");
+        return temp;
     }
 }
