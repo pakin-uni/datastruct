@@ -2,12 +2,11 @@ import javax.swing.*;
 
 class ListTest {
     public static void main(String[] args) {
-        String choice,j;
+        String choice;
         int ch = 0;
         Book e;
         ListTest test = new ListTest();
-        Object obj;
-
+        Object obj,j;
         ArrayList list = new ArrayList();
         while(ch != 8){
             try{
@@ -67,7 +66,7 @@ class ListTest {
                 case 8:
                     System.exit(0);
                 case 9:
-                    list.findName();
+                    list.sortBookname();
                     break;
                 case 10:
                     list.sortPrice();
@@ -81,6 +80,12 @@ class ListTest {
 
 
                     break;
+                default :
+                    JOptionPane.showMessageDialog(null,
+                            "Not a correct choice, try again",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    break;
             }
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
@@ -92,6 +97,7 @@ class ListTest {
         Book temp;
         String Author, bookName, Genera;
         double price;
+
 
         Author = JOptionPane.showInputDialog(null, "Input Name of Author. ");
         bookName = JOptionPane.showInputDialog(null, "Input Name of the book. ");
@@ -114,7 +120,7 @@ class ListTest {
 
     public String getEle()
     {
-        String temp = JOptionPane.showInputDialog(null,"Please input number :");
+        String temp = JOptionPane.showInputDialog(null,"Please Book number :");
         return temp;
     }
 }

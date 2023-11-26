@@ -30,6 +30,7 @@ public class ArrayList implements ListADT {
                 book[current] = e;
             }
         }
+        System.out.println(book[current].getBookName());
     }
 
     @Override
@@ -73,6 +74,26 @@ public class ArrayList implements ListADT {
 
     }
 
+    public void deleteBook(int row) throws Exception {
+        int Row = row;
+        System.out.println(Row);
+        if (isEmpty()) {
+            throw new Exception("List is empty");
+        } else {
+            if (size == 1)
+                Row = -1;
+            else if (Row == size - 1)
+                Row = 0;
+            else {
+                for (int i = Row; i < size - 1; i++)
+                    book[i] = book[i + 1];
+                Row = 0;
+            }
+            size--;
+        }
+
+    }
+
     @Override
     public void update(Book e) throws Exception {
         book[current] = e;
@@ -100,12 +121,36 @@ public class ArrayList implements ListADT {
         SortByBookname();
         return false;
     }
-    public void findName() {
+    public void sortBookname() {
         SortByBookname();
+        for (int i = 0; i < size; i++) {
+            JOptionPane.showMessageDialog(null,
+                    " "+book[i].getBookName());
+        }
     }
 
-    public void sortPrice(){
-        quickSort(0,size-1);
+    public void sortAuthorname() {
+        SortByAuthor();
+        for (int i = 0; i < size; i++) {
+            JOptionPane.showMessageDialog(null,
+                    book[i].getBookName());
+        }
+    }
+
+    public void sortPrice() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("List is empty");
+        }else{
+            quickSort(0,size-1);
+            for (int i = 0; i < size; i++) {
+                JOptionPane.showMessageDialog(null,
+                        " Author       : "+book[i].getAuthor()+
+                                 "\nTitle      : "+book[i].getBookName()+
+                                 "\nPrice      : "+book[i].getPrice()+
+                                 "\nGenera     : "+book[i].getGenera());
+            }
+        }
+
     }
 
     public void SortByBookname() {
@@ -121,47 +166,65 @@ public class ArrayList implements ListADT {
                     book[j] = temp;
                 }
             }
+
         }
-//        for (int i = 0; i < size; i++) {
-//            JOptionPane.showMessageDialog(null,book[i].getBookName());
-//
-//        }
     }
 
-        public void quickSort( int left, int right)
-        {
-            Book tmp;
-            int i, j;
-            i = left;
-            j = right;
-            int mid = (left + right) / 2;
-            do {
-                while ((book[i].getPrice()) < (book[mid].getPrice()))
-                    i++;
-                while ((book[mid].getPrice()) < (book[j].getPrice()))
-                    j--;
-                if (i <= j) {
-                    tmp = book[i];
+    public void SortByAuthor() {
+        Book temp;
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+
+                // to compare one string with other strings
+                if (book[i].getBookName().compareTo(book[j].getBookName()) > 0) {
+                    // swapping
+                    temp = book[i];
                     book[i] = book[j];
-                    book[j] = tmp;
-                    i++;
-                    j--;
+                    book[j] = temp;
                 }
-            } while (i <= j);
-            if (left < j) quickSort(left, j);
-            if (i < right) quickSort(i, right);
-            printAll();
+            }
 
         }
+    }
 
-    public boolean SearchName(String name) {
+        public void quickSort( int left, int right) throws Exception {
+            if (isEmpty()) {
+                throw new Exception("List is empty");
+            }else {
+                Book tmp;
+                int i, j;
+                i = left;
+                j = right;
+                int mid = (left + right) / 2;
+                do {
+                    while ((book[i].getPrice()) < (book[mid].getPrice()))
+                        i++;
+                    while ((book[mid].getPrice()) < (book[j].getPrice()))
+                        j--;
+                    if (i <= j) {
+                        tmp = book[i];
+                        book[i] = book[j];
+                        book[j] = tmp;
+                        i++;
+                        j--;
+                    }
+                } while (i <= j);
+                if (left < j) quickSort(left, j);
+                if (i < right) quickSort(i, right);
+                printAll();
+            }
+        }
+
+    public boolean SearchName(Object name) {
         boolean nameFound = false;
-        for (int i = 0; i<size-1;i++) {
-            if((book[i].getBookName()).equals(name)) {
+        for (int i = 0; i<size;i++) {
+            System.out.println((book[i].getAuthor()));
+            if((book[i].getAuthor()).equals(name)) {
+                System.out.println(name);
+
                 System.out.println(name+ " is found at position " +i+"\n");
                 JOptionPane.showMessageDialog(null,name+ " is found at position " +i+"\n");
                 nameFound = true;
-                break;
             }
         }
         return nameFound;
