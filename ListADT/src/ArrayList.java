@@ -121,7 +121,7 @@ public class ArrayList implements ListADT {
         SortByBookname();
         return false;
     }
-    public void sortBookname() {
+    public void sortBookName() {
         SortByBookname();
         for (int i = 0; i < size; i++) {
             JOptionPane.showMessageDialog(null,
@@ -129,7 +129,7 @@ public class ArrayList implements ListADT {
         }
     }
 
-    public void sortAuthorname() {
+    public void sortAuthorName() {
         SortByAuthor();
         for (int i = 0; i < size; i++) {
             JOptionPane.showMessageDialog(null,
@@ -157,7 +157,6 @@ public class ArrayList implements ListADT {
         Book temp;
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-
                 // to compare one string with other strings
                 if (book[i].getBookName().compareTo(book[j].getBookName()) > 0) {
                     // swapping
@@ -215,13 +214,14 @@ public class ArrayList implements ListADT {
             }
         }
 
+
+
     public boolean SearchName(Object name) {
         boolean nameFound = false;
         for (int i = 0; i<size;i++) {
             System.out.println((book[i].getAuthor()));
             if((book[i].getAuthor()).equals(name)) {
                 System.out.println(name);
-
                 System.out.println(name+ " is found at position " +i+"\n");
                 JOptionPane.showMessageDialog(null,name+ " is found at position " +i+"\n");
                 nameFound = true;

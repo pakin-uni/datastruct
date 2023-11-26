@@ -66,7 +66,7 @@ class ListTest {
                 case 8:
                     System.exit(0);
                 case 9:
-                    list.sortBookname();
+                    list.sortBookName();
                     break;
                 case 10:
                     list.sortPrice();

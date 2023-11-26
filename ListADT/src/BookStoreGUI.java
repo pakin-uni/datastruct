@@ -43,7 +43,7 @@ public class BookStoreGUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    list.sortBookname();
+                    list.sortBookName();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -73,7 +73,22 @@ public class BookStoreGUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    list.sortAuthorname();
+                    int i = Integer.parseInt(JOptionPane.showInputDialog("Input 1 for sort Name ::: 2 for search Name"));
+                    switch(i){
+                        case 1:
+                            list.sortAuthorName();
+                            break;
+                        case 2:
+                            String name = JOptionPane.showInputDialog("Author Name");
+                            if (list.SearchName(name)){
+                                JOptionPane.showMessageDialog(null,"Correct.");
+                            } else{
+                                JOptionPane.showMessageDialog(null,"Incorrect.");
+                            }
+                            break;
+
+                    }
+
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -138,6 +153,7 @@ public class BookStoreGUI extends JFrame {
         });
         inputPanel.add(addButton);
 
+
         JButton deleteButton = new JButton("Delete Selected");
         deleteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -149,6 +165,7 @@ public class BookStoreGUI extends JFrame {
             }
         });
         inputPanel.add(deleteButton);
+
 
         setLayout(new BorderLayout());
         add(welcomePanel, BorderLayout.NORTH);
@@ -171,9 +188,8 @@ public class BookStoreGUI extends JFrame {
             quantityField.setText("");
             priceBook = Double.parseDouble(price);
 
-            Genera = quantityField.getText();
-            temp = new Book(author, title, priceBook, Genera);
-            temp.setStudent(author, title, priceBook, Genera);
+            temp = new Book(author, title, priceBook, quantity);
+            temp.setStudent(author, title, priceBook, quantity);
 
             list.insert(temp);
         } else {
