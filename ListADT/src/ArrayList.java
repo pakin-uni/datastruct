@@ -175,7 +175,7 @@ public class ArrayList implements ListADT {
             for (int j = i + 1; j < size; j++) {
 
                 // to compare one string with other strings
-                if (book[i].getBookName().compareTo(book[j].getBookName()) > 0) {
+                if (book[i].getAuthor().compareTo(book[j].getAuthor()) > 0) {
                     // swapping
                     temp = book[i];
                     book[i] = book[j];
